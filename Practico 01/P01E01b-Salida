@@ -1,0 +1,6 @@
+Reemplace los dígitos del contenido de un archivo por un carácter dado como parámetro.
+
+Uno = a
+Dos = a
+Tres = a
+Ochenta y ocho = aa
