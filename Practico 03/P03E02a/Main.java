@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         int id = 0;
         List<String> datos = Collections.synchronizedList(
                 new ArrayList<String>());

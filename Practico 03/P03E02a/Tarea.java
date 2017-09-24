@@ -7,7 +7,7 @@ public class Tarea implements Runnable {
     int id1;
     int id2;
 
-    public Tarea (Recurso r1, Recurso r2, int id1, int id2) {
+    public Tarea(Recurso r1, Recurso r2, int id1, int id2) {
         super();
         this.r1 = r1;
         this.r2 = r2;
