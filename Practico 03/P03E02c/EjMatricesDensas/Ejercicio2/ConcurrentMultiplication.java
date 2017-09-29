@@ -10,24 +10,16 @@ public class ConcurrentMultiplication implements IMultiplication {
         if (a.getColumns()!=b.getRows())
             throw new RuntimeException("La cantidad de columnas de la matriz a tiene que ser igual a la cantidad de filas de la matriz b");
         IMatrix res = a.createMatrix(a.getRows(), b.getColumns());
-        Thread[][] ThreadRes = new Thread[a.getRows()][b.getColumns()];
+        Thread[] ThreadRes = new Thread[a.getRows()];
         //Por cada fila de A
         for (int i=0;i<a.getRows();i++){
-            //Por cada columna de B
-            for (int j=0;j<b.getColumns();j++){
-                //Realiza la multiplicación para la posición i j
-                ThreadRes[i][j] = new Thread(new ConcurrentRes(i,j,a,b,res));
-                ThreadRes[i][j].start();
-            }
+            ThreadRes[i] = new Thread(new ConcurrentRes(i,a,b,res));
+            ThreadRes[i].start();
         }
 
         try {
             for (int i=0;i<a.getRows();i++){
-                //Por cada columna de B
-                for (int j=0;j<b.getColumns();j++){
-                    //Realiza la multiplicación para la posición i j
-                    ThreadRes[i][j].join();
-                }
+                ThreadRes[i].join();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

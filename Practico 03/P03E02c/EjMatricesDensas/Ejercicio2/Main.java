@@ -10,7 +10,7 @@ public class Main {
         IMatrix matrix;
         ConcurrentMultiplication multiplication = new ConcurrentMultiplication();
 
-        int sizeMatrix = 100;
+        int sizeMatrix = 1000;
         int cantIterations = 10;
         boolean solucion;
 
